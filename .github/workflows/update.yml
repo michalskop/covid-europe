@@ -43,7 +43,7 @@ jobs:
           dir: '.config/gspread/'
       
       - name: Update Autria 
-        run: python scripts/austria.py
+        run: python scripts/austria.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
       - name: Update Germany 
         run: python scripts/germany.py
       - name: Update Poland 

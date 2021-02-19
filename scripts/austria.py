@@ -1,7 +1,8 @@
 """Prepare data for Austria."""
 
 import gspread
-import pandas as pd 
+import pandas as pd
+import sys
 
 # read data
 url = "https://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
@@ -29,7 +30,10 @@ df['country'] = 'Austria'
 df = df.fillna('')
 
 # write to GSheet
-gc = gspread.service_account()
+if len(sys.argv) > 1:
+    gc = gspread.service_account(sys.argv[1])
+else:
+    gc = gspread.service_account()
 sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
 
 sh = gc.open_by_key(sheetkey)
@@ -38,4 +42,4 @@ ws = sh.worksheet('Austria')
 ws.update([df.columns.values.tolist()] + df.values.tolist())
 
 # save to csv
-df.to_csv("../data/austria.csv")
+df.to_csv("data/austria.csv")
