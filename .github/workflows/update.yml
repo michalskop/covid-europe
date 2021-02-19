@@ -30,13 +30,13 @@ jobs:
           pip install -r requirements.txt
       
       - name: Update Autria 
-        run: python austria.py
+        run: python scripts/austria.py
       - name: Update Germany 
-        run: python germany.py
+        run: python scripts/germany.py
       - name: Update Poland 
-        run: python poland.py
+        run: python scripts/poland.py
       - name: Update Slovakia
-        run: python slovakia.py
+        run: python scripts/slovakia.py
       
       - name: Commit and push if it changed
         run: |-
