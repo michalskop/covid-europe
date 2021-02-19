@@ -70,7 +70,10 @@ df = df.sort_values('code')
 # df.to_csv('pl_temp4.csv')
 
 # write to GSheet
-gc = gspread.service_account()
+if len(sys.argv) > 1:
+    gc = gspread.service_account(sys.argv[1])
+else:
+    gc = gspread.service_account()
 sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
 
 sh = gc.open_by_key(sheetkey)
@@ -79,4 +82,4 @@ ws = sh.worksheet('Poland')
 ws.update([df.columns.values.tolist()] + df.values.tolist())
 
 # save to csv
-df.to_csv("../data/poland.csv")
+df.to_csv("data/poland.csv")
