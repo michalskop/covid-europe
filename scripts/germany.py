@@ -1,7 +1,8 @@
 """Prepare data for Germany."""
 
 import gspread
-import pandas as pd 
+import pandas as pd
+import sys
 
 url = "https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/more-data/latest-aggregate.csv"
 

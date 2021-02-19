@@ -3,6 +3,7 @@
 import gspread
 import pandas as pd 
 import numpy as np
+import sys
 
 # read data
 url = "https://github.com/Institut-Zdravotnych-Analyz/covid19-data/raw/main/PCR_Tests/OpenData_Slovakia_Covid_PCRTests_District.csv"

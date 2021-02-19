@@ -1,10 +1,11 @@
 """Prepare data for Poland."""
 
 import gspread
+import io
 import numpy as np
 import pandas as pd
 import requests
-import io
+import sys
 import zipfile
 
 
