@@ -2,4 +2,3 @@ gspread
 numpy
 pandas
 requests
-zipfile
