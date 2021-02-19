@@ -1,5 +1,4 @@
 gspread
-io
 numpy
 pandas
 requests
