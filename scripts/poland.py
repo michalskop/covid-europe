@@ -44,7 +44,7 @@ pt.reset_index(inplace=True)
 # population['population'] = (round(pt['liczba_przypadkow'] / pt['liczba_na_10_tys_mieszkancow'] * 10000)).astype(int)
 # population = population.sort_values('code')
 # population.to_csv('pl_population.csv')
-population = pd.read_csv("./pl_population.csv").reset_index()
+population = pd.read_csv("scripts/pl_population.csv").reset_index()
 
 data = data.merge(population, how="left", left_on="teryt", right_on="code")
 data7 = data7.merge(population, how="left", left_on="teryt", right_on="code")
