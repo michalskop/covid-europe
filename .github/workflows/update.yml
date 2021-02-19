@@ -47,6 +47,10 @@ jobs:
           pwd
           ls
           cat service_account.json
+          echo '***'
+          cat ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          echo 'xxx'
+          echo ${{ secrets.SERVICE_ACCOUNT_JSON }}
       
       - name: Update Autria 
         run: python scripts/austria.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
