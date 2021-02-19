@@ -33,8 +33,6 @@ jobs:
         run: |
           mkdir .config
           mkdir .config/gspread
-          pwd
-          ls
       - name: gspread credentials 2
         uses: jsdaniell/create-json@1.1.2
         with:
@@ -50,7 +48,11 @@ jobs:
         run: python scripts/poland.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
       - name: Update Slovakia
         run: python scripts/slovakia.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
-      
+ 
+      - name: gspread credentials 3
+        run: |
+          rm -r .config
+ 
       - name: Commit and push if it changed
         run: |-
           git config user.name "Automated"
