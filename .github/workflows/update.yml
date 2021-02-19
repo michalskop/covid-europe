@@ -41,6 +41,12 @@ jobs:
           name: 'service_account.json'
           json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           dir: '.config/gspread/'
+      - name: gspread 3
+        run: |
+          cd .config/gspread
+          pwd
+          ls
+          cat service_account.json
       
       - name: Update Autria 
         run: python scripts/austria.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
