@@ -28,6 +28,16 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
+
+      - name: gspread credentials
+        run: |
+          mkdir .config
+          mkdir .config/gspread
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: 'service_account.json'
+          json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          dir: '.config/gspread/'
       
       - name: Update Autria 
         run: python scripts/austria.py
