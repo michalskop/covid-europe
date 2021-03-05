@@ -45,8 +45,8 @@ for tr in trs:
 
 df = df.sort_values('name')
 
-# join population
-df['id'] = population['code']
+# join population (sorted by name, original sort)
+df['id'] = population['code'].str.replace('HU', 'HU-')
 df['code'] = population['code']
 df['population'] = population['population']
 df['incidence_7_100k'] = df['incidence_7'].astype(int) / df['population'] * 100000
@@ -54,6 +54,7 @@ df['country'] = 'Hungary'
 
 df = df.fillna('')
 
+# final sort by id
 df = df.sort_values('id')
 
 # write to GSheet
