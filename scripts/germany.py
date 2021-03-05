@@ -28,8 +28,8 @@ df['id'] = 'DE-' + data['ags'].apply(_n4to5)
 df['code'] = data['ags'].apply(_n4to5)
 df['population'] = data['population']
 df['state'] = data['state']
-df['incidence_7'] = data['rki_cases_7di']
-df['incidence_7_100k'] = df['incidence_7'] / df['population'] * 100000
+df['incidence_7_100k'] = data['rki_cases_7di']
+# df['incidence_7_100k'] = df['incidence_7'] / df['population'] * 100000
 df['country'] = 'Germany'
 
 df = df.fillna('')
