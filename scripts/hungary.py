@@ -5,6 +5,7 @@ import gspread
 import pandas as pd
 import re
 from requests_html import HTMLSession
+import sys
 
 # create new dataframe
 header = ['id', 'code', 'name', 'population', 'prevalence', 'incidence_7', 'prevalence_100k', 'incidence_7_100k', 'country', 'date']
