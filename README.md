@@ -39,7 +39,8 @@ map: https://gis-support.pl/baza-wiedzy-2/dane-do-pobrania/granice-administracyj
 
 0. create geojson from shp
 
-0. ```
+0. 
+```
 geo2topo pl_counties_original.geo.json > pl_counties_original.topo.json
 toposimplify -P 0.01 -f < pl_counties_original.topo.json > pl_counties-topo.json
 topo2geo < pl_counties-topo.json pl_counties_original.geo=pl_counties.geo.json
@@ -56,7 +57,8 @@ data2: https://github.com/Institut-Zdravotnych-Analyz/covid19-data/blob/main/AG_
 
 demography: http://statdat.statistics.sk/cognosext/cgi-bin/cognos.cgi?b_action=cognosViewer&ui.action=run&ui.object=storeID%28%22i362DCE4D88EC4E13A9EE8526B286D18B%22%29&ui.name=Po%C4%8Det%20obyvate%C4%BEov%20pod%C4%BEa%20pohlavia%20-%20SR%2C%20oblasti%2C%20kraje%2C%20okresy%2C%20mesto%2C%20vidiek%20%28ro%C4%8Dne%29%20%5Bom7102rr%5D&run.outputFormat=&run.prompt=true&cv.header=false&ui.backURL=%2Fcognosext%2Fcps4%2Fportlets%2Fcommon%2Fclose.html&run.outputLocale=sk
 
-0. ```
+0. 
+```
 geo2topo sk_counties_original.geo.json > sk_counties_original.topo.json
 toposimplify -P 0.05 -f < sk_counties_original.topo.json > sk_counties-topo.json
 topo2geo < sk_counties-topo.json tracts=sk_counties.geo.json
@@ -72,6 +74,16 @@ data:
 
 map: https://data.gov.cz/attachments/%C4%8Dl%C3%A1nky/kartogram-choropleth/data/okresy-simple.json
 
+## Hungary
 
+Source: http://pandemia.hu/koronavirus-megyeterkep-magyarorszagi-adatok-megyei-bontasban/
 
+Map: https://gisco-services.ec.europa.eu/distribution/v2/nuts/download/ref-nuts-2021-01m.geojson.zip
 
+Demography: https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g_megy%C3%A9i 
+
+0. filter HU map in QGIS
+
+1. manually `prepare hu_population.csv`
+
+2. `hungary.py`

@@ -48,6 +48,8 @@ jobs:
         run: python scripts/poland.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
       - name: Update Slovakia
         run: python scripts/slovakia.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
+      - name: Update Hungary
+        run: python scripts/hungary.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
  
       - name: gspread credentials 3
         run: |
