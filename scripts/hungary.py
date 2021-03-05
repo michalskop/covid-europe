@@ -66,4 +66,4 @@ ws = sh.worksheet('Hungary')
 ws.update([df.columns.values.tolist()] + df.values.tolist())
 
 # save to csv
-df.to_csv("data/austria.csv")
+df.to_csv("data/hungary.csv")
