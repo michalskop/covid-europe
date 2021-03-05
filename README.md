@@ -2,6 +2,8 @@
 
 Data for a detailed map of covid cases in central Europe
 
+Published here: https://www.seznamzpravy.cz/clanek/aktualni-mapa-stredni-evropy-hranice-vykresluje-koronavirus-144415
+
 ## Germany
 
 source: https://github.com/jgehrcke/covid-19-germany-gae
