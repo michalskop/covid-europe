@@ -2,3 +2,4 @@ gspread
 numpy
 pandas
 requests
+requests_html
