@@ -54,6 +54,8 @@ df['country'] = 'Hungary'
 
 df = df.fillna('')
 
+df = df.sort_values('id')
+
 # write to GSheet
 if len(sys.argv) > 1:
     gc = gspread.service_account(sys.argv[1])
