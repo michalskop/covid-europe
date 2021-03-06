@@ -82,6 +82,8 @@ Source: http://pandemia.hu/koronavirus-megyeterkep-magyarorszagi-adatok-megyei-b
 
 Map: https://gisco-services.ec.europa.eu/distribution/v2/nuts/download/ref-nuts-2021-01m.geojson.zip
 
+https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts (geojson)
+
 Demography: https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g_megy%C3%A9i 
 
 0. filter HU map in QGIS
