@@ -1,4 +1,4 @@
-name: Update data
+name: Update data - Austria
 
 on:
   push:
@@ -40,17 +40,9 @@ jobs:
           json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           dir: '.config/gspread/'
       
-      - name: Update Autria 
+      - name: Update Austria 
         run: python scripts/austria.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
-      - name: Update Germany 
-        run: python scripts/germany.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
-      - name: Update Poland 
-        run: python scripts/poland.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
-      - name: Update Slovakia
-        run: python scripts/slovakia.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
-      - name: Update Hungary
-        run: python scripts/hungary.py "/home/runner/work/covid-europe/covid-europe/.config/gspread/service_account.json"
- 
+
       - name: gspread credentials 3
         run: |
           rm -r .config
