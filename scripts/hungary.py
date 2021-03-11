@@ -1,4 +1,4 @@
-"""Prepare data for Austria."""
+"""Prepare data for Hungary."""
 
 import csv
 import gspread
@@ -13,7 +13,7 @@ header = ['id', 'code', 'name', 'population', 'prevalence', 'incidence_7', 'prev
 df = pd.DataFrame(columns=header)
 
 # read population
-f = "scripts/hu_population.csv"
+f = "../scripts/hu_population.csv"
 population = pd.read_csv(f)
 population = population.sort_values('name')
 
