@@ -8,7 +8,9 @@ from requests_html import HTMLSession
 import sys
 
 # create new dataframe
-header = ['id', 'code', 'name', 'population', 'prevalence', 'incidence_7', 'prevalence_100k', 'incidence_7_100k', 'country', 'date']
+# population, code - from population.csv
+header = ['id', 'name', 'prevalence', 'incidence_7', 'prevalence_100k', 'incidence_7_100k', 'country', 'date']
+
 
 df = pd.DataFrame(columns=header)
 
@@ -43,12 +45,12 @@ for tr in trs:
     }
     df = df.append(it, ignore_index=True)
 
-df = df.sort_values('name')
+# df = df.sort_values('name')
 
 # join population (sorted by name, original sort)
-df['id'] = population['code'].str.replace('HU', 'HU-')
-df['code'] = population['code']
-df['population'] = population['population']
+df = df.merge(population.loc[:,['name', 'population', 'code']], how='left', left_on='name', right_on='name')
+
+df['id'] = df['code'].str.replace('HU', 'HU-')
 df['incidence_7_100k'] = df['incidence_7'].astype(int) / df['population'] * 100000
 df['country'] = 'Hungary'
 
