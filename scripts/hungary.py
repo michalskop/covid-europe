@@ -59,6 +59,9 @@ df = df.fillna('')
 # final sort by id
 df = df.sort_values('id')
 
+# reorder columns to the standard order
+df = df[['id', 'code', 'name', 'population', 'prevalence', 'incidence_7', 'prevalence_100k', 'incidence_7_100k', 'country', 'date']]
+
 # write to GSheet
 if len(sys.argv) > 1:
     gc = gspread.service_account(sys.argv[1])
