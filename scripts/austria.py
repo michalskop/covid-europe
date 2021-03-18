@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 # read data
-url = "https://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
+url = "http://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
 
 data = pd.read_csv(url, sep=';')
 
