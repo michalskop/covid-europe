@@ -8,7 +8,7 @@ import requests
 # read data
 url = "http://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
 
-r = requests(url)
+r = requests.get(url)
 
 data = pd.read_csv(r.content, sep=';')
 
