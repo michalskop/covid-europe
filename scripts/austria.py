@@ -2,12 +2,15 @@
 
 import gspread
 import pandas as pd
-import sys
+import requests
+# import sys
 
 # read data
 url = "http://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
 
-data = pd.read_csv(url, sep=';')
+r = requests(url)
+
+data = pd.read_csv(r.content, sep=';')
 
 # filter last date only
 last_time = data.tail(1)['Time'].values[0]
@@ -30,10 +33,14 @@ df['country'] = 'Austria'
 df = df.fillna('')
 
 # write to GSheet
-if len(sys.argv) > 1:
-    gc = gspread.service_account(sys.argv[1])
-else:
-    gc = gspread.service_account()
+# if len(sys.argv) > 1:
+#     gc = gspread.service_account(sys.argv[1])
+# else:
+#     gc = gspread.service_account()
+# sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
+
+# Cibulka show
+gc = gspread.service_account()
 sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
 
 sh = gc.open_by_key(sheetkey)
