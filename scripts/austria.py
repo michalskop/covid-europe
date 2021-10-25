@@ -3,10 +3,20 @@
 import gspread
 import pandas as pd
 import requests
+import urllib3
 # import sys
 
 # read data
 url = "http://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
+
+# disable verification https://stackoverflow.com/a/41041028/1666623
+requests.packages.urllib3.disable_warnings()
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+try:
+    requests.packages.urllib3.contrib.pyopenssl.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+except AttributeError:
+    # no pyopenssl support used / needed / available
+    pass
 
 r = requests.get(url, verify=False)
 
