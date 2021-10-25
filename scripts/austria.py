@@ -5,7 +5,7 @@ import io
 import pandas as pd
 import requests
 import urllib3
-# import sys
+import sys
 
 # read data
 url = "http://covid19-dashboard.ages.at/data/CovidFaelle_Timeline_GKZ.csv"
@@ -21,6 +21,7 @@ except AttributeError:
 
 r = requests.get(url, verify=False)
 
+# read requests https://stackoverflow.com/a/39213616/1666623
 data = pd.read_csv(io.StringIO(r.text), sep=';')
 
 # filter last date only
@@ -44,15 +45,15 @@ df['country'] = 'Austria'
 df = df.fillna('')
 
 # write to GSheet
-# if len(sys.argv) > 1:
-#     gc = gspread.service_account(sys.argv[1])
-# else:
-#     gc = gspread.service_account()
-# sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
+if len(sys.argv) > 1:
+    gc = gspread.service_account(sys.argv[1])
+else:
+    gc = gspread.service_account()
+sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
 
 # Cibulka show
-gc = gspread.service_account()
-sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
+# gc = gspread.service_account()
+# sheetkey = "1DRDJvFQstk-4dVajSOzUupaLcWMVEqjajyzHh8gfbdQ"
 
 sh = gc.open_by_key(sheetkey)
 ws = sh.worksheet('Austria')
