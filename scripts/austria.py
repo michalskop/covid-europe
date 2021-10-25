@@ -1,6 +1,7 @@
 """Prepare data for Austria."""
 
 import gspread
+import io
 import pandas as pd
 import requests
 import urllib3
@@ -20,7 +21,7 @@ except AttributeError:
 
 r = requests.get(url, verify=False)
 
-data = pd.read_csv(r.content, sep=';')
+data = pd.read_csv(io.StringIO(r.text), sep=';')
 
 # filter last date only
 last_time = data.tail(1)['Time'].values[0]
