@@ -1,4 +1,4 @@
-# Europe
+# Central Europe
 
 ![Map](map.png)
 
